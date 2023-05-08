@@ -1,0 +1,64 @@
+@import "../../styles";
+
+.container {
+  // header
+  & > .header {
+    width: 100%;
+    height: 5rem;
+    @include shadow($shadow-color);
+    @include position(sticky, 0, 0);
+    z-index: 10;
+    @include desktop {
+      &.close {
+        display: none;
+      }
+    }
+  }
+
+  //   mobile Header
+  & > .headerMobile {
+    width: 100%;
+    height: 5rem;
+    @include shadow($shadow-color);
+    @include position(sticky, 0, 0);
+    z-index: 10;
+    display: none;
+    @include desktop {
+      display: block;
+    }
+  }
+
+  //   page
+  & > .page {
+    height: calc(100vh - 5rem);
+    width: 100%;
+    @include flex(row, stretch);
+
+    // sidebar
+    & > .sidebar {
+      width: 40rem;
+      border-right: 1px solid $light-gray;
+      height: 100%;
+      overflow-y: auto;
+      background-color: $white;
+
+      @include desktop {
+        @include position(fixed, 5rem, 0);
+        z-index: 9;
+        width: 100%;
+        transition: transform 0.15s;
+
+        &.close {
+          transform: translateX(-100%);
+        }
+      }
+    }
+
+    // call
+    & > .call {
+      flex: 1;
+      height: 100%;
+      overflow-y: auto;
+    }
+  }
+}

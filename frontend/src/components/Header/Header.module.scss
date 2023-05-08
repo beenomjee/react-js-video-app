@@ -1,0 +1,45 @@
+@import "../../styles";
+
+.container {
+  @include flex(row, center);
+  height: 100%;
+  padding: 0 2.4rem;
+
+  & > .left {
+    position: relative;
+
+    .button {
+      font-size: 2.5rem;
+      padding: 0.5rem;
+      color: $dark;
+    }
+
+    & > div > .button {
+      width: 100%;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      @include font(1.4rem, 500);
+      @include text($dark, uppercase);
+      padding: 1.2rem 0;
+      transition: background-color 200ms;
+
+      &:hover {
+        background-color: $light-gray;
+      }
+    }
+  }
+
+  & > .info {
+    user-select: none;
+    @include flex(row, center, flex-end, 0.8rem);
+
+    & > img {
+      @include avatar(4rem);
+    }
+
+    & > span {
+      @include font(1.3rem, 500);
+    }
+  }
+}

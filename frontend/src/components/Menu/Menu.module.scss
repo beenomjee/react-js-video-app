@@ -1,0 +1,24 @@
+@import "../../styles";
+
+.bgWrapper {
+  @include position(fixed, 0, 0, 0, 0);
+  z-index: 1000;
+}
+
+.container {
+  @include position(absolute, unset, 1.5rem);
+  z-index: 1001;
+  background-color: $white;
+  @include shadow($shadow-color);
+  min-width: 20rem;
+  max-width: 70vw;
+  padding: 1.2rem 0;
+  @include radius(1rem);
+  transform-origin: 0 0;
+  transform: scale(0);
+  transition: transform 200ms;
+
+  &.open {
+    transform: scale(1);
+  }
+}
